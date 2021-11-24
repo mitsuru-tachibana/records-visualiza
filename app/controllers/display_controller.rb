@@ -8,5 +8,7 @@ class DisplayController < ApplicationController
   def compare
   end
 
-  params.permit(:class_name, :records)
+  def display_params
+    params.permit(:class_name, records: {})
+  end
 end

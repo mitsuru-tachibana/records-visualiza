@@ -35,3 +35,4 @@
 /.vscode/
 /logfile
 /routes.txt
+/heroku_logfile.rb
