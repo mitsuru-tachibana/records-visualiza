@@ -9,6 +9,7 @@ gem 'awesome_print'
 gem 'bootsnap', '>= 1.1.0', require: false# 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+gem 'htmlbeautifier'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use postgresql as the database for Active Record
