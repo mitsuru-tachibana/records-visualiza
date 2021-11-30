@@ -1,8 +1,9 @@
+# DBから取得したレコードを視覚的に表示する
 class DisplayController < ApplicationController
   def visualize
     @class_name = params[:class_name]
     @records = params[:records]
-    binding.pry
+    @rec_count = @records.to_unsafe_hash.length
   end
 
   def compare

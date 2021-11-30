@@ -1,3 +1,149 @@
 // Place all the styles related to the Display controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+:root {
+  --b_gray: 1px solid #b4b4b4;
+  --bc_light_green: #53a812;
+  --tb_padding: 3px 15px;
+}
+
+.content_wrapper {
+  // 整形・配置
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  // 背景
+  // テキスト
+  // アニメーション
+
+  .class_name {
+    // 整形・配置
+    // margin-top: 30px;
+    padding: 10px 30px;
+    // 背景
+    background-color: var(--bc_light_green);
+    // テキスト
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    // アニメーション
+  }
+
+  .records_wrapper {
+    // 整形・配置
+    width: 100%;
+    height: calc(100% - 44.5px);
+    padding-bottom: 70px;
+    // 背景
+    background-color: white;
+    // テキスト
+    // アニメーション
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+      /* Chrome, Safari 対応 */
+      display: none;
+    }
+
+    .record_wrapper {
+      // 整形・配置
+      width: 90%;
+      margin: auto;
+      // 背景
+      // テキスト
+      // アニメーション
+
+      .box_top {
+        // 整形・配置
+        height: 25px;
+        border-left: var(--b_gray);
+        // 背景
+        // テキスト
+        // アニメーション
+      }
+
+      .box_bottom {
+        // 整形・配置
+        width: 100%;
+        display: flex;
+        // 背景
+        // テキスト
+        // アニメーション
+
+        .bb_left_space {
+          // 整形・配置
+          width: 50px;
+          border-top: var(--b_gray);
+          border-left: var(--b_gray);
+          // 背景
+          // テキスト
+          // アニメーション
+        }
+
+        .bb_left_space.last {
+          border-left: none;
+        }
+
+        .bb_right_record {
+          // 整形・配置
+          width: calc(100% - 50px);
+          // 背景
+          // テキスト
+          // アニメーション
+
+          table {
+            // 整形・配置
+            border: var(--b_gray);
+            border-collapse: separate;
+            border-radius: 10px;
+            // 背景
+            // テキスト
+            font-size: 14px;
+            // アニメーション
+
+            tr {
+              // 整形・配置
+              // 背景
+              // テキスト
+              // アニメーション
+
+              th {
+                // 整形・配置
+                padding: var(--tb_padding);
+                border-bottom: 1.5px solid white;
+                // 背景
+                background-color: #ebede8;
+                // テキスト
+                line-height: 170%;
+                white-space: nowrap;
+                // アニメーション
+              }
+
+              td {
+                // 整形・配置
+                padding: var(--tb_padding);
+                border-bottom: var(--b_gray);
+                // 背景
+                // テキスト
+                overflow-wrap: break-word;
+                line-height: 170%;
+                // アニメーション
+              }
+            }
+
+            tr:last-child {
+
+              th,
+              td {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
