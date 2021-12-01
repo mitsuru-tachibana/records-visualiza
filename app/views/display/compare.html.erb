@@ -1,2 +1,54 @@
-<h1>Display#compare</h1>
-<p>Find me in app/views/display/compare.html.erb</p>
+<!-- content_wrapper -->
+<div class="content_wrapper">
+
+  <!-- class_name -->
+  <div class="class_name">
+    <%= @class_name %>
+  </div>
+  <!-- classname -->
+
+  <!-- records_wrapper -->
+  <div class="records_wrapper">
+    <!-- ↓@recordsの構造
+      @records = { rec_name: rec_datset{} } <- key:各レコードの順番 value:その中身
+      rec_datset = { dat_num: dat_content{} } <- key:データセット(属性と値)の順番 value:その中身
+      data_content { attr, val } <- key:レコードの属性 val:その値
+    -->
+
+    <!-- @records.each -->
+    <% @records.each.with_index do |(rec_name, rec_datset), i| %>
+    <!-- record_wrapper -->
+    <div class="record_wrapper">
+      <div class="box_top"></div>
+      <div class="box_bottom">
+        <div class="
+             bb_left_space <%= "last" if i == @rec_count - 1 %>"></div>
+
+        <!-- bb_right_record -->
+        <div class="bb_right_record">
+          <table>
+            <% rec_datset.each do |dat_num, dat_content| %>
+            <% dat_content.each do |attr, val| %>
+            <tr>
+              <th><%= attr %></th>
+              <td><%= val %></td>
+            </tr>
+            <% end %>
+            <!-- dat_content.each -->
+            <% end %>
+            <!-- rec_datset.each -->
+          </table>
+        </div>
+        <!-- bb_right_record -->
+
+      </div>
+      <!-- box_bottom -->
+    </div>
+    <!-- record_wrapper -->
+    <% end %>
+    <!-- @records.each -->
+
+  </div>
+  <!-- records_wrapper -->
+</div>
+<!-- content_wrapper -->
