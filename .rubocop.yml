@@ -3,6 +3,4 @@ Style/FrozenStringLiteralComment:
 Metrics/MethodLength:
   Max: 30
 Metrics/AbcSize:
-  # The ABC size is a calculated magnitude, so this number can be a Fixnum or
-  # a Float.
   Max: 35

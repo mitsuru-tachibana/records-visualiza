@@ -17,6 +17,17 @@
 
     <!-- @records.each -->
     <% @records.each.with_index do |(rec_name, rec_datset), i| %>
+
+    <%# @recs_arr.each_with_index do |arr|
+      if !arr[0].nil?
+        arr[0].each do |data_num, data_content|
+          data_content.each do |attr, val|
+            puts attr, val
+          end
+        end
+      end
+    end %>
+
     <!-- record_wrapper -->
     <div class="record_wrapper">
       <div class="box_top"></div>
