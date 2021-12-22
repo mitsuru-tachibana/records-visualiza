@@ -1,65 +1,85 @@
-<!-- content_wrapper -->
 <div class="content_wrapper">
 
-  <!-- class_name -->
   <div class="class_name">
     <%= @class_name %>
-  </div>
-  <!-- classname -->
+  </div><!-- classname -->
 
-  <!-- records_wrapper -->
   <div class="records_wrapper">
-    <!-- ↓@recordsの構造
-      @records = { rec_name: rec_datset{} } <- key:各レコードの順番 value:その中身
-      rec_datset = { dat_num: dat_content{} } <- key:データセット(属性と値)の順番 value:その中身
+    <!-- ↓@recs_arrの構造
+      @recs_arr = [recs1, recs2]  <- paramsから取得したレコードの配列
+      recs1 = { dat_num: dat_content{} } <- key:データセットの順番
+         value:その中身(属性と値)
       data_content { attr, val } <- key:レコードの属性 val:その値
     -->
-
-    <!-- @records.each -->
-    <% @records.each.with_index do |(rec_name, rec_datset), i| %>
-
-    <%# @recs_arr.each_with_index do |arr|
-      if !arr[0].nil?
-        arr[0].each do |data_num, data_content|
-          data_content.each do |attr, val|
-            puts attr, val
-          end
-        end
-      end
-    end %>
-
-    <!-- record_wrapper -->
-    <div class="record_wrapper">
-      <div class="box_top"></div>
-      <div class="box_bottom">
-        <div class="
-             bb_left_space <%= "last" if i == @rec_count - 1 %>"></div>
-
-        <!-- bb_right_record -->
-        <div class="bb_right_record">
-          <table>
-            <% rec_datset.each do |dat_num, dat_content| %>
-            <% dat_content.each do |attr, val| %>
-            <tr>
-              <th><%= attr %></th>
-              <td><%= val %></td>
-            </tr>
+    <% @recs_arr.each do |arr| %>
+    <div class="compare_wrapper">
+      <div class="record_wrapper">
+        <div class="box_top"></div>
+        <div class="box_bottom">
+          <% if arr[0] == nil %>
+          <div class="bb_left_space nil"></div>
+          <% elsif arr[0]['0']['id'] == @recs1_last_id %>
+          <div class="bb_left_space last"></div>
+          <% else %>
+          <div class="bb_left_space"></div>
+          <% end %>
+          <div class="bb_right_record">
+            <% recs1_vals = [] %>
+            <% if arr[0] != nil %>
+            <table>
+              <% arr[0].each do |dat_num, dat_content| %>
+              <% dat_content.each do |attr, val| %>
+              <tr>
+                <th><%= attr %></th>
+                <td><%= val %></td>
+                <% recs1_vals << val %>
+              </tr>
+              <% end %>
+              <!-- dat_content.each -->
+              <% end %>
+              <!-- rec_datset.each -->
+            </table>
             <% end %>
-            <!-- dat_content.each -->
-            <% end %>
-            <!-- rec_datset.each -->
-          </table>
-        </div>
-        <!-- bb_right_record -->
+            <!-- if !arr[0].nil? -->
+          </div><!-- bb_right_record -->
+        </div><!-- box_bottom -->
+      </div><!-- record_wrapper -->
 
-      </div>
-      <!-- box_bottom -->
-    </div>
-    <!-- record_wrapper -->
+      <div class="arrow_wrapper">
+        <%= image_tag 'arrow_yellow.png' %>
+      </div><!-- /.arrow-wrapper -->
+
+      <div class="record_wrapper">
+        <div class="box_top"></div>
+        <div class="box_bottom">
+          <% if arr[1] == nil %>
+          <div class="bb_left_space nil"></div>
+          <% elsif arr[1]['0']['id'] == @recs2_last_id %>
+          <div class="bb_left_space last"></div>
+          <% else %>
+          <div class="bb_left_space"></div>
+          <% end %>
+          <div class="bb_right_record">
+            <% if arr[1] != nil %>
+            <table>
+              <% arr[1].each.with_index do |(dat_num, dat_content), i| %>
+              <% dat_content.each do |attr, val| %>
+              <tr>
+                <th><%= attr %></th>
+                <td class="<%= "changed" if recs1_vals.blank? || val != recs1_vals[i] %>"><%= val %></td>
+              </tr>
+              <% end %>
+              <!-- dat_content.each -->
+              <% end %>
+              <!-- rec_datset.each -->
+            </table>
+            <% end %>
+            <!-- if arr[1] != nil -->
+          </div><!-- bb_right_record -->
+        </div><!-- box_bottom -->
+      </div><!-- record_wrapper -->
+    </div><!-- compare-wrapper -->
     <% end %>
     <!-- @records.each -->
-
-  </div>
-  <!-- records_wrapper -->
-</div>
-<!-- content_wrapper -->
+  </div><!-- records_wrapper -->
+</div><!-- content_wrapper -->

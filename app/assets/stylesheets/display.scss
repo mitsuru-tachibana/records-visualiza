@@ -8,10 +8,9 @@
   --tb_padding: 3px 15px;
 }
 
-// visualizeのレイアウト
+// visualizeのレイアウト ========================================
 .content_wrapper {
   // 整形・配置
-  width: 70%;
   height: 100%;
   margin: auto;
   // 背景
@@ -149,4 +148,155 @@
   }
 }
 
-// compareのレイアウト
+// compareのレイアウト ==========================================
+.content_wrapper {
+  // 整形・配置
+  width: 90%;
+  // 背景
+  // テキスト
+  // アニメーション
+
+  .records_wrapper {
+    // 整形・配置
+    padding: 0 5% 70px 5%;
+    // 背景
+    // テキスト
+    // アニメーション
+
+    .compare_wrapper {
+      // 整形・配置
+      display: flex;
+      align-items: stretch;
+      // 背景
+      // テキスト
+      // アニメーション
+
+      .record_wrapper {
+        // 整形・配置
+        width: 45%;
+        margin: 0;
+        // 背景
+        // テキスト
+        // アニメーション
+
+        .box_top {
+          // 整形・配置
+          height: 25px;
+          // 背景
+          // テキスト
+          // アニメーション
+        }
+
+        .box_bottom {
+          // 整形・配置
+          width: 100%;
+          height: calc(100% - 25px);
+          display: flex;
+          // 背景
+          // テキスト
+          // アニメーション
+
+          .bb_left_space {
+            // 整形・配置
+            width: 50px;
+            border-top: var(--b_gray);
+            // 背景
+            // テキスト
+            // アニメーション
+          }
+
+          .bb_left_space.last {
+            border-left: none;
+          }
+
+          .bb_left_space.nil {
+            border-top: none;
+          }
+
+          .bb_right_record {
+            // 整形・配置
+            width: calc(100% - 50px);
+            // 背景
+            // テキスト
+            // アニメーション
+
+            table {
+              // 整形・配置
+              width: 100%;
+              border: var(--b_gray);
+              border-collapse: separate;
+              border-radius: 10px;
+              // 背景
+              // テキスト
+              font-size: 14px;
+              // アニメーション
+
+              tr {
+                // 整形・配置
+                // 背景
+                // テキスト
+                // アニメーション
+
+                th {
+                  // 整形・配置
+                  padding: var(--tb_padding);
+                  border-bottom: 1.5px solid white;
+                  // 背景
+                  background-color: #ebede8;
+                  // テキスト
+                  line-height: 170%;
+                  white-space: nowrap;
+                  // アニメーション
+                }
+
+                td {
+                  // 整形・配置
+                  padding: var(--tb_padding);
+                  border-bottom: var(--b_gray);
+                  // 背景
+                  // テキスト
+                  overflow-wrap: break-word;
+                  line-height: 170%;
+                  // アニメーション
+                }
+
+                td.changed {
+                  background-color: #fff75f;
+                }
+              }
+
+              tr:last-child {
+
+                th,
+                td {
+                  border-bottom: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .arrow_wrapper {
+        // 整形・配置
+        width: 10%;
+        display: flex;
+        padding-top: 25px;
+        // 背景
+        // テキスト
+        // アニメーション
+
+        img {
+          // 整形・配置
+          width: 60%;
+          display: block;
+          margin: auto;
+          align-items: center;
+          // 背景
+          // テキスト
+          // アニメーション
+        }
+      }
+    }
+  }
+}

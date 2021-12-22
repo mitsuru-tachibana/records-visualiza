@@ -7,7 +7,6 @@ class DisplayController < ApplicationController
   end
 
   def compare
-    @class_name = params[:class_name]
     recs1 = params[:records1]
     recs2 = params[:records2]
     recs1_count = recs1.to_unsafe_hash.length
@@ -17,8 +16,10 @@ class DisplayController < ApplicationController
                  else
                    recs1_count
                  end
+    @class_name = params[:class_name]
     @recs_arr = return_recs_arr(arr_length, recs1, recs2)
-    binding.pry
+    @recs1_last_id = recs1["record#{recs1_count - 1}"]['0']['id']
+    @recs2_last_id = recs2["record#{recs2_count - 1}"]['0']['id']
   end
 
   # rubocop:disable Style/For
@@ -26,7 +27,7 @@ class DisplayController < ApplicationController
     recs_arr = []
     recs1_index = 0
     recs2_index = 0
-    for i in 0..arr_length
+    for i in 0..arr_length - 1
       recs1_current = recs1["record#{recs1_index}"]
       recs2_current = recs2["record#{recs2_index}"]
       if recs1_current.nil?

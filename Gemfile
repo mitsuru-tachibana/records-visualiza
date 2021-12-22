@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'launchy'
 gem 'pg'
 gem 'pry-rails'
+gem 'pry-byebug'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
