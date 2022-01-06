@@ -187,6 +187,14 @@
           // アニメーション
         }
 
+        .box_top.eor {
+          // 整形・配置
+          border-left: none;
+          // 背景
+          // テキスト
+          // アニメーション
+        }
+
         .box_bottom {
           // 整形・配置
           width: 100%;
@@ -210,6 +218,11 @@
           }
 
           .bb_left_space.nil {
+            border-top: none;
+          }
+
+          .bb_left_space.eor {
+            border-left: none;
             border-top: none;
           }
 

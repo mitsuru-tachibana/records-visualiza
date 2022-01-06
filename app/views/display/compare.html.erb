@@ -11,15 +11,24 @@
          value:その中身(属性と値)
       data_content { attr, val } <- key:レコードの属性 val:その値
     -->
+    <% eor1 = false %>
+    <% eor2 = false %>
     <% @recs_arr.each do |arr| %>
     <div class="compare_wrapper">
       <div class="record_wrapper">
+        <% if eor1 == true %>
+        <div class="box_top eor"></div>
+        <% else %>
         <div class="box_top"></div>
+        <% end %>
         <div class="box_bottom">
-          <% if arr[0] == nil %>
+          <% if eor1 == true %>
+          <div class="bb_left_space eor"></div>
+          <% elsif arr[0] == nil %>
           <div class="bb_left_space nil"></div>
           <% elsif arr[0]['0']['id'] == @recs1_last_id %>
           <div class="bb_left_space last"></div>
+          <% eor1 = true %>
           <% else %>
           <div class="bb_left_space"></div>
           <% end %>
@@ -50,12 +59,19 @@
       </div><!-- /.arrow-wrapper -->
 
       <div class="record_wrapper">
+        <% if eor2 == true %>
+        <div class="box_top eor"></div>
+        <% else %>
         <div class="box_top"></div>
+        <% end %>
         <div class="box_bottom">
-          <% if arr[1] == nil %>
+          <% if eor2 == true %>
+          <div class="bb_left_space eor"></div>
+          <% elsif arr[1] == nil %>
           <div class="bb_left_space nil"></div>
           <% elsif arr[1]['0']['id'] == @recs2_last_id %>
           <div class="bb_left_space last"></div>
+          <% eor2 = true %>
           <% else %>
           <div class="bb_left_space"></div>
           <% end %>
